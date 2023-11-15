@@ -2,8 +2,32 @@
 <html>
 <head>
     <title>College map</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>please enter your University or College name:</h1>
+    <h1>college resource founder</h1>
     
+    <div>
+        <label>Univesity name:</label>
+        <input type="text" id="name" required><br>
+    </div>
+    <div>
+        <button type="submit" onclick="uniData.storeData()">get result</button>
+    </div>
+   
+    <div id='test'>output:</div>
+
+    <br>
+    <br>
+
+    <div id="map"></div>>
+    <script src="map.js"></script>
+    <script src=
+    "https://maps.googleapis.com/maps/api/js?
+    key=AIzaSyBgbPNYjLDlYcVMeZuou_6jacLCMshLhFQ&map_ids=53c1d93462e7e87b
+    &callback=initMap">
+</script>
+<script src="data.js"></script>
+
+
 </body>
