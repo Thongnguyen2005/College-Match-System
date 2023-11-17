@@ -7,15 +7,12 @@
 <body>
     <h1>college resource founder</h1>
     
-    <div>
-        <label>Univesity name:</label>
-        <input type="text" id="name" required><br>
-    </div>
-    <div>
-        <button type="submit" onclick="uniData.storeData()">get result</button>
-    </div>
-   
-    <div id='test'>output:</div>
+    <label for="locationInput">Enter Location:</label>
+    <input type="text" id="locationInput" placeholder="Enter location">
+
+    <button onclick="getLocation()">Get Location</button>
+
+    <p id="demo"></p>
 
     <br>
     <br>
@@ -27,7 +24,6 @@
     key=AIzaSyBgbPNYjLDlYcVMeZuou_6jacLCMshLhFQ&map_ids=53c1d93462e7e87b
     &callback=initMap">
 </script>
-<script src="data.js"></script>
 
 
 </body>
