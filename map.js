@@ -35,3 +35,5 @@ function initMap() {
 
   window.initMap = initMap;
 
+
+  // prev key: AIzaSyBgbPNYjLDlYcVMeZuou_6jacLCMshLhFQ&map_ids=53c1d93462e7e87b
