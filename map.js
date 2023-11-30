@@ -1,6 +1,7 @@
 function initMap() {
   new google.maps.Map(document.getElementById("map"), {
-    mapId: "53c1d93462e7e87b",
+    // mapId: "53c1d93462e7e87b",
+    mapId: "69e512c76b5c7143",
     center: { lat: 48.85, lng: 2.35 },
     zoom: 12,
   });
@@ -19,6 +20,7 @@ geocoder.geocode({address: city}, (results, status) => {
       center: centerLocation,
       zoom: 12,
     });
+
     // The marker, positioned at that city
     new google.maps.Marker({
       position: results[0].geometry.location,
@@ -28,7 +30,6 @@ geocoder.geocode({address: city}, (results, status) => {
 
     //call function locateRestaurents()
     locateRestaurants(centerLocation, myMap);
-
 }else{
 alert("Geocode was not successful for the following reason: " + status);
 }
@@ -44,7 +45,7 @@ Procedure:
 */
 function locateRestaurants(center, map){
   //access methods of PlacesService class in API Places by creating a instance
-  const placesService = new google.map.places.PlacesService(map);
+  const placesService = new google.maps.places.PlacesService(map);
 
   //radius and type are adjustable
   const request = {
@@ -60,9 +61,13 @@ function locateRestaurants(center, map){
       //some properties of the place we use in this case are geometry.location and name
       for (let i = 0; i < results.length; i++){
         const place = results[i];
+
+        //Set the marker color to blue
+        const blueMarker = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
         new google.maps.Marker({
           position: place.geometry.location,
           map: map,
+          icon: blueMarker,
           title: place.name, 
         });
       }
@@ -71,5 +76,5 @@ function locateRestaurants(center, map){
       console.error("Error fetching restaurants:", status);
     }
   });
-}
+};
 window.initMap = initMap;
