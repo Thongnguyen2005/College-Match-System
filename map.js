@@ -39,9 +39,6 @@ alert("Geocode was not successful for the following reason: " + status);
 /*This function:
 - Find the latitudes and longtitudes of restaurents nearby 2-3 miles of the selected location from locatyCity() function
 - Mark all restaurents nearby the selected location
-
-Procedure:
-- 
 */
 function locateRestaurants(center, map){
   //access methods of PlacesService class in API Places by creating a instance
@@ -73,7 +70,7 @@ function locateRestaurants(center, map){
       }
     }
     else {
-      console.error("Error fetching restaurants:", status);
+      alert("Geocode was not successful for the following reason: " + status);
     }
   });
 };
