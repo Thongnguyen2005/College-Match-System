@@ -18,7 +18,7 @@ geocoder.geocode({address: city}, (results, status) => {
     // The map, centered at that city
     const myMap = new google.maps.Map(document.getElementById("map"), {
       center: centerLocation,
-      zoom: 12,
+      zoom: 13,
     });
 
     // The marker, positioned at that city
@@ -36,10 +36,7 @@ alert("Geocode was not successful for the following reason: " + status);
 });
 };
 
-/*This function:
-- Find the latitudes and longtitudes of restaurents nearby 2-3 miles of the selected location from locatyCity() function
-- Mark all restaurents nearby the selected location
-*/
+
 function locateRestaurants(center, map){
   //access methods of PlacesService class in API Places by creating a instance
   const placesService = new google.maps.places.PlacesService(map);
@@ -61,11 +58,34 @@ function locateRestaurants(center, map){
 
         //Set the marker color to blue
         const blueMarker = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
-        new google.maps.Marker({
+        const marker = new google.maps.Marker({
           position: place.geometry.location,
           map: map,
           icon: blueMarker,
           title: place.name, 
+        });
+
+        const distance = google.maps.geometry.spherical.computeDistanceBetween(request.location, marker.position) / 1609;
+        //request.location is similar to center, which is location of chosen location
+        //convert meters to miles
+
+        const contentString = 
+          `<h1>${marker.getTitle()}</h1>` +
+          `<p>Distance frorm your chosen location: ${distance.toFixed(2)} meters</p>`
+          //2 decimal points for distance in meters
+        ;
+
+        //display information when user clicks the marker
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          arialabel: marker.getTitle(),
+        });
+        marker.addListener("click", () => { //action when clicking the marker
+          infowindow.open({
+            anchor: marker,
+            //anchor is like the beginning point
+            map,
+          })
         });
       }
     }
