@@ -18,10 +18,7 @@
         <input type="text" id="name" placeholder="Enter a location" required>
         <button disabled class="btn btn-info btn-sm" type="submit" id="submit" class onclick="locateCity()">get result</button>
     </div>
-    <br>
-    
-    <div id="map"></div>
-    
+    <br>    
     <!-- <script src=
     "https://maps.googleapis.com/maps/api/js?
     key=AIzaSyBgbPNYjLDlYcVMeZuou_6jacLCMshLhFQ&map_ids=53c1d93462e7e87b
@@ -29,11 +26,13 @@
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmR-o9SvS-S3riIECG_4V_TpDIDgjGBUs&map_ids=53c1d93462e7e87b&callback=initMap">
     </script> -->
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAab8eqxgi_tM1wsK5qqRYVgsozhXt7kw&libraries=places&callback=initMap"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAab8eqxgi_tM1wsK5qqRYVgsozhXt7kw&libraries=places,geometry&callback=initMap"></script>
     <script src="map.js"></script>
     <script src="functionality.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <div id="map"></div>
 
     <!--not sure if it is needed but have it just in case-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
