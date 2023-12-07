@@ -56,6 +56,8 @@ function locateRestaurants(center, map){
       for (let i = 0; i < results.length; i++){
         const place = results[i];
 
+        console.log(place);
+
         //Set the marker color to blue
         const blueMarker = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
         const marker = new google.maps.Marker({
