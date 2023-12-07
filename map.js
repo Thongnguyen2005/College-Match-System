@@ -75,7 +75,7 @@ function locateRestaurants(center, map, radius ){
 
         const contentString = 
           `<h1>${marker.getTitle()}</h1>` +
-          `<p>Distance frorm your chosen location: ${distance.toFixed(radius)} meters</p>`
+          `<p>Distance frorm your chosen location: ${distance.toFixed(2)} miles</p>`
           //2 decimal points for distance in meters
         ;
 
