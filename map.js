@@ -9,6 +9,8 @@ function initMap() {
 
 function locateCity(){
 const city = document.getElementById("name").value;
+const rad=document.getElementById("rad").value;
+
 const geocoder = new google.maps.Geocoder();
 geocoder.geocode({address: city}, (results, status) => {
   if(status==="OK"){
@@ -29,7 +31,7 @@ geocoder.geocode({address: city}, (results, status) => {
     });
 
     //call function locateRestaurents()
-    locateRestaurants(centerLocation, myMap);
+    locateRestaurants(centerLocation, myMap ,rad);
 }else{
 alert("Geocode was not successful for the following reason: " + status);
 }
@@ -37,14 +39,14 @@ alert("Geocode was not successful for the following reason: " + status);
 };
 
 
-function locateRestaurants(center, map){
+function locateRestaurants(center, map, radius ){
   //access methods of PlacesService class in API Places by creating a instance
   const placesService = new google.maps.places.PlacesService(map);
 
   //radius and type are adjustable
   const request = {
     location: center,
-    radius: 2 * 1609.34, // convert 2 miles into meters
+    radius: radius * 1609.34, // convert 2 miles into meters
     type: "restaurant",
   };
 
@@ -73,7 +75,7 @@ function locateRestaurants(center, map){
 
         const contentString = 
           `<h1>${marker.getTitle()}</h1>` +
-          `<p>Distance frorm your chosen location: ${distance.toFixed(2)} meters</p>`
+          `<p>Distance frorm your chosen location: ${distance.toFixed(radius)} meters</p>`
           //2 decimal points for distance in meters
         ;
 
