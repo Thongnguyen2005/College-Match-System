@@ -12,6 +12,12 @@ body {
     padding: 0;
 }
 
+
+h1{
+    font-family: 'Dancing Script';
+}
+
+
 #map {
     height: 60vh;
 }
