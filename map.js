@@ -46,7 +46,7 @@ function locateRestaurants(center, map, radius ){
   //radius and type are adjustable
   const request = {
     location: center,
-    radius: radius * 1609.34, // convert 2 miles into meters
+    radius: radius * 1609.34, // convert radius miles into meters
     type: "restaurant",
   };
 
@@ -76,7 +76,7 @@ function locateRestaurants(center, map, radius ){
         const contentString = 
           `<h1>${marker.getTitle()}</h1>` +
           `<p>Distance frorm your chosen location: ${distance.toFixed(2)} miles</p>`
-          //2 decimal points for distance in meters
+          //2 decimal points for distance in miles
         ;
 
         //display information when user clicks the marker
